@@ -6,26 +6,59 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
 
-    var todoItems: [String] = []
+    var toDoItems: [Task] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchTasks()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoItems.count
+        return toDoItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = todoItems[indexPath.row]
+        let task = toDoItems[indexPath.row]
+        cell.textLabel?.text = task.taskToDo
         
         return cell
+    }
+    
+    private func saveTask(taskToDo: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let task = Task(context: context)
+        task.taskToDo = taskToDo
+        
+        do {
+            try context.save()
+            toDoItems.append(task)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func fetchTasks() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+        do {
+            toDoItems = try context.fetch(fetchRequest)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     @IBAction func addTaskTapped(_ sender: UIBarButtonItem) {
@@ -34,7 +67,7 @@ class TableViewController: UITableViewController {
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             let textField = alertController.textFields?.first
-            self.todoItems.insert((textField?.text)!, at: 0)
+            self.saveTask(taskToDo: (textField?.text)!)
             self.tableView.reloadData()
         }
         

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A9B62072654376800BB72ED /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B62052654376800BB72ED /* Task+CoreDataClass.swift */; };
+		7A9B62082654376800BB72ED /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A9B62062654376800BB72ED /* Task+CoreDataProperties.swift */; };
 		7AB36A2C2653FD8C00DE193B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB36A2B2653FD8C00DE193B /* AppDelegate.swift */; };
 		7AB36A2E2653FD8C00DE193B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB36A2D2653FD8C00DE193B /* SceneDelegate.swift */; };
 		7AB36A302653FD8C00DE193B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB36A2F2653FD8C00DE193B /* TableViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A9B62052654376800BB72ED /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7A9B62062654376800BB72ED /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7AB36A282653FD8C00DE193B /* CoreDataDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AB36A2B2653FD8C00DE193B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7AB36A2D2653FD8C00DE193B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		7AB36A2A2653FD8C00DE193B /* CoreDataDemo */ = {
 			isa = PBXGroup;
 			children = (
+				7A9B62052654376800BB72ED /* Task+CoreDataClass.swift */,
+				7A9B62062654376800BB72ED /* Task+CoreDataProperties.swift */,
 				7AB36A2B2653FD8C00DE193B /* AppDelegate.swift */,
 				7AB36A2D2653FD8C00DE193B /* SceneDelegate.swift */,
 				7AB36A2F2653FD8C00DE193B /* TableViewController.swift */,
@@ -163,8 +169,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AB36A302653FD8C00DE193B /* TableViewController.swift in Sources */,
+				7A9B62072654376800BB72ED /* Task+CoreDataClass.swift in Sources */,
 				7AB36A362653FD8C00DE193B /* CoreDataDemo.xcdatamodeld in Sources */,
 				7AB36A2C2653FD8C00DE193B /* AppDelegate.swift in Sources */,
+				7A9B62082654376800BB72ED /* Task+CoreDataProperties.swift in Sources */,
 				7AB36A2E2653FD8C00DE193B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
